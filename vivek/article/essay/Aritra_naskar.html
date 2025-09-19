@@ -121,6 +121,104 @@
 .share-button:hover svg {
   stroke: #a67c00; /* Changes SVG color on hover */
 }
+
+/* ----- CUSTOM AUDIO PLAYER (ENHANCED) ----- */
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(145deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
+    padding: 0.75rem 1rem;
+    border-radius: 50px; /* Pill shape */
+    margin: 2rem 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer, more pronounced shadow */
+}
+
+.player-btn {
+    background-color: #c93e07;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px; /* Slightly larger button */
+    height: 45px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevents button from shrinking */
+    box-shadow: 0 2px 5px rgba(166, 61, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.player-btn:hover {
+    background-color: #702000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(112, 41, 0, 0.5);
+}
+
+/* This is the key change for centering */
+.progress-and-time {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between progress bar and time */
+    width: 100%;
+}
+
+.player-progress-container {
+    background: #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 10px; /* Thicker bar */
+    width: 100%;
+    flex-grow: 1; /* Allows the bar to take up available space */
+    transition: height 0.2s ease;
+}
+
+/* Hover effect for the progress container */
+.player-progress-container:hover {
+    height: 12px; /* Bar gets slightly thicker on hover */
+}
+
+.player-progress {
+    background-color: #c93e07;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    position: relative; /* Needed for the thumb pseudo-element */
+    transition: width 0.1s linear;
+}
+
+/* --- The new "thumb" on the progress bar --- */
+.player-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 18px; /* Thumb size */
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #c93e07;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.custom-audio-player:hover .player-progress::after {
+    opacity: 1; /* Show thumb when hovering the player */
+}
+
+.time-display {
+    font-size: 0.9rem;
+    color: #333;
+    font-family: monospace; /* Monospaced font for clean time display */
+    font-weight: bold;
+    min-width: 90px; /* Prevents layout shift as time changes */
+    text-align: center;
+}
   </style>
   <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../footer.css" />
@@ -169,7 +267,20 @@
 </button></p>
   
   <img src="../../media/aritra.jpg" alt="puja">
-
+    <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
     <p>আধুনিক বিজ্ঞানের ছোঁয়ায় দুর্গাপূজার এক অভিনব ভাবনা হলো চৌম্বকক্ষেত্রে ভাসমান দুর্গা। ধারণাটি সহজ: দুটি ইলেক্ট্রোম্যাগনেটিক কয়েল এমনভাবে বসানো যে মুখোমুখি নিকটবর্তী পৃষ্ঠে একই মেরু (উত্তর–উত্তর বা দক্ষিণ–দক্ষিণ) তৈরি হয়। একই মেরু হলে বিকর্ষণ বল জন্মায়, এবং সেই বলের মান নিয়ন্ত্রণ করা যায় কয়েলে প্রবাহিত কারেন্ট পরিবর্তন করে। কারেন্ট যত বাড়ে, চৌম্বকক্ষেত্র তত শক্তিশালী হয়, ফলে বিকর্ষণ বলও বাড়ে।</p>
     <p>দুর্গার মূর্তিটি একটি হালকা, অ-চৌম্বকীয় প্ল্যাটফর্মে বসানো থাকবে; প্ল্যাটফর্মের নিচে ও বেসের ভিতরে থাকবে কয়েল। লক্ষ্য হলো উপরের কয়েল থেকে আসা বিকর্ষণ বল ঠিক এতটাই রাখা, যাতে তা নিচের দিকে টান, অর্থাৎ মূর্তির ওজনের সমান হয়। তখন প্ল্যাটফর্ম ভারসাম্যে ভাসবে—না ওপরে উঠবে, না নিচে নামবে। গাণিতিকভাবে,</p>
@@ -256,6 +367,70 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
 </script>
 
 </body>

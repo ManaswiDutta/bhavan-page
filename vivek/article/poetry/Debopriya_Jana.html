@@ -8,6 +8,11 @@
   <title>Greening Naraka</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../footer.css" />
+  <!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
   <style>
     /* ----- HEADER ----- */
     header {
@@ -170,7 +175,20 @@
 </button></p>
   
   <img src="../../media/jana.jpg" alt="puja">
-
+  <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
     <p>Through molten smoke he fell, the silence tolling bell,<br>
 In Naraka’s hollow, where scorched earth whispered smell;<br>
@@ -263,6 +281,70 @@ Then winter’s blue descended, washing all the room;<br>
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
 </script>
 </body>
 </html>

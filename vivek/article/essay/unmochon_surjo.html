@@ -8,6 +8,11 @@
   <title>Writters name</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../footer.css" />
+  <!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
   <style>
     /* ----- HEADER ----- */
     header {
@@ -169,7 +174,20 @@
 </button></p>
   
   <img src="../../media/surja.jpg" alt="puja">
-
+  <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
     <p>মহালয়ার আগের দিন। স্বভাবতই আকাশ নীল, তার মাঝে সাদা মেঘ, বাতাসে শিউলির গন্ধ, মৃদুমন্দ হাওয়া দোলা দিয়ে যায় কাশের বনে। চারিদিকেই শান্তির পরশ, শুধু শান্তি নেই পঞ্চকের মনে। পঞ্চক বড়ই কৌতূহলী ও জিজ্ঞাসু ছেলে। মায়ের কাছে আজ সে মা দুর্গার স্বরূপ জানতে চায়; কিন্তু উত্তরের সে সন্তুষ্ট হয় না। হাজারো কল্পনা মাথায় নিয়ে সে ঘুমিয়ে পড়ে। কিন্তু তারপরেই একটা অদ্ভুত কান্ড ঘটে। চোখ খুলতেই পঞ্চক নিজেকে খুঁজে পায় এক অচেনা জায়গায়, যেখানে আকাশের রং লাল, গাছের পাতা নীল, মাটি সবুজাভ। বুঝতে পারে এ পৃথিবী নয়। ভয় পেয়ে যায় সে। ঠিক তখনই কেউ তার পিছন থেকে কাঁধে হাত দিয়ে বলে,"ভয় পাচ্ছ কেন?" সে পিছন ফিরে দেখে তার সামনে দাঁড়িয়ে তারই সমবয়সী একটি মেয়ে। পঞ্চক বলে,"কে তুমি?" উত্তরে মেয়েটি বলে,"অতশত জেনে লাভ নেই, আজ আমাদের এখানে দুর্গাপুজো আছে। চলো সেখানে, খুব মজা হবে।" পঞ্চকের মনে কৌতুহল দানা বাঁধে, তাই সে আপত্তি করে না। পূজার স্থলে পৌঁছে পঞ্চক অবাক হয়ে যায়। মণ্ডপে কোন বাহ্যিক আভিজাত্য নেই, তবুও কেমন যেন একটা আপনার গন্ধ রয়েছে। কিন্তু প্রতিমা দেখে সে চমকে যায়। সে জিজ্ঞাসা করে,"তুমি বললে এখানে দুর্গাপূজা হচ্ছে, কিন্তু তা কি করে হয়? দুর্গা ঠাকুর তো এমন দেখতে হয় না।" মেয়েটি বলে,"তাতে কী এসে যায়? মা তো জগতের প্রতিটি কণায় রয়েছেন; এ জগত তো তাঁরই সৃষ্টি। তাঁর ইচ্ছা ছাড়া এ জগতে গাছের একটি পাতাও নড়ে না। মা চেয়েছেন বলেই না আজ এখানে তাঁর আরাধনা হচ্ছে। তা তুমি কিভাবে তাঁকে এই মূর্তির মধ্যে আটকে রাখবে? মূর্তি তো কেবল উপলক্ষ মাত্র, শুদ্ধ মনে তুমি যেখান থেকেই ডাকো না কেন, মা ঠিক সাড়া দেবেন..." চোখ খুলে যায় পঞ্চকের। উৎসাহে চেঁচিয়ে উঠে সে বলে,"এইতো উত্তর পেয়েছি!" "কী উত্তর?",মেয়েটি জিজ্ঞাসা করে। পঞ্চক বলে,"সে সব জেনে তোমার লাভ নেই..., আচ্ছা তোমার নাম কী বলতো?" মেয়েটি হেঁসে বলে,"আমার নাম দুর্গা। আর হ্যাঁ আমি কিন্তু জানি তুমি কীসের উত্তর পেয়েছ..." তখনই মায়ের ডাকে ঘুম ভেঙে যায় পঞ্চকের। আবার সে পৃথিবীতে ফিরে আসে। সে শুনতে পায়, নতুন ভোরের আলোর মতোই চারিদিকে ছড়িয়ে পড়ছে মহালয়ার সুর।</p>
 
@@ -248,6 +266,70 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
 </script>
 
 </body>

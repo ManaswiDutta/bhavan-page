@@ -169,7 +169,20 @@
 </button></p>
   
   <img src="../../media/kc.jpg" alt="puja">
-
+  <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
     <p>মৃন্ময় তাকিয়ে আছে কলকাতার ধোঁয়াশা আকাশের দিকে। পুজো আসছে। একরাশ নস্টালজিয়া আর প্রযুক্তির মিশেলে এক অদ্ভুত অনুভূতি ভিড় করে আসছে ওর মনে। শহরের বাতাসে আর শিউলি ফুলের গন্ধ ভেসে বেড়ায় না, তার বদলে জায়গা করে নিয়েছে ওজোন-স্তরীয় এয়ার পিউরিফায়ারের মৃদু গুঞ্জন। কলকাতার যে অলিগলিগুলো একসময় আগমনীর সুরে মুখরিত থাকত, এখন সেগুলি ভগ্নস্তূপের নিস্তব্ধতায় বিলীন। তবে কি বাংলার মানুষ আর দুর্গাপুজো পালন করে না?</p>
     <p>করে বইকি। তবে সময় বদলেছে, আর তার সাথে বদলেছে পুজোর রীতিনীতি।২০৯৭ সালের দুর্গাপুজো এক হাইব্রিড অভিজ্ঞতায় রূপান্তরিত হয়েছে। শহর জুড়ে আর আগের মতো বিশাল বিশাল প্যান্ডেল দেখা যায় না। ক্রমবর্ধমান পরিবেশ দূষণ এবং পুরোনো কলকাতার জরাজীর্ণ পরিকাঠামোর কারণে এখন পুজো হয় মূলত ভার্চুয়াল এবং অগমেন্টেড রিয়্যালিটির হাত ধরে। মৃন্ময় তার ব্যক্তিগত হলোগ্রাফিক প্রজেক্টরে বাড়ির ড্রয়িং রুমেই নামিয়ে আনে উত্তর কলকাতার এক বিখ্যাত বনেদি বাড়ির ঠাকুরদালান। ডিজিটাল ধুনোর গন্ধ ভেসে আসে এয়ার সিন্থেসাইজার থেকে, আর স্পিকার থেকে ভেসে আসে পুরোহিতের শান্ত, গম্ভীর মন্ত্রোচ্চারণ।এই নতুন ধারার পুজোর কেন্দ্রে রয়েছে এক শক্তিশালী কৃত্রিম বুদ্ধিমত্তা, যার নাম 'আগমনী'। 'আগমনী' শহরের সমস্ত নথিভুক্ত পুজোর ডেটাবেস পরিচালনা করে। সে নির্ধারণ করে দেয় কোন এলাকার মানুষ কোন ভার্চুয়াল প্যান্ডেলে যোগ দেবে, যাতে সার্ভারে অতিরিক্ত চাপ না পড়ে। এমনকি, 'আগমনী'ই প্রতিমার মুখ, গয়না এবং শাড়ির ডিজাইন তৈরি করে শিল্পীদের সাহায্য করে। এই বছর, মৃন্ময়ের পাড়ার পুজো কমিটির থিম হলো 'প্রকৃতির পুনরুজ্জীবন'। তাই তাদের প্রতিমার শাড়ি তৈরি হয়েছে বিলুপ্ত হয়ে যাওয়া শাপলা ফুলের ডিজিটাল প্যাটার্ন দিয়ে।</p>
@@ -255,6 +268,70 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
 </script>
 
 </body>
