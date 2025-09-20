@@ -108,7 +108,10 @@ footer {
   font-size: 0.95rem;
   margin-top: 3rem;
 }
-
+/* Hidden class */
+.hidden {
+  display: none !important;
+}
 /* Responsive */
 @media (max-width: 768px) {
   header { height: auto; padding: 1rem 0 2rem; }
