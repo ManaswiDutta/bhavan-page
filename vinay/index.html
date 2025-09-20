@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>বোধন@2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhan-2025</title>
   <link rel="stylesheet" href="footer.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/webp" href="media/rkm-removebg-preview.png" />
 
+
   <style>
+
+     /*----------Font --------*/
+    @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap');
     /* Header Styling */
     header {
-      background: url('media/maa.png') no-repeat center center;
-      background-size: 100% auto;
+      background-size: cover;
       height: 500px;
       width: auto;
       position: relative;
@@ -102,13 +105,13 @@
     /* Hero Section */
     
     .hero {
-      background: linear-gradient(to bottom, #f692ff, #ffffff);
+      background: linear-gradient(to bottom, #ffd992, #ffffff);
       padding: 40px 2rem;
       text-align: left;
       border-top: 4px solid black;
       border-bottom: 4px solid black;
       max-width: 2000px;
-      margin: 2rem auto;
+      /*margin: 2rem auto;*/
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
     .hero h2 {
@@ -182,60 +185,248 @@
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* subtle shadow for beauty */
       }
+      /* .articles{
+        max-width:450px;
+      } */
     }
 
+    /* Responsive Article Cards for Mobile */
+    @media (max-width: 768px) {
+      .articles article {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .articles img {
+        width: 100%;
+        max-width: 200px;
+      }
+      .articles h3 {
+        font-size: 1rem;
+      }
+      .articles p {
+        font-size: 0.8rem;
+      }
+      .dropdown {
+        padding: 0 1rem;
+      }
+      main {
+        padding: 0.5rem;
+      }
+        .articles article {
+    padding: 0.5rem;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #ffd992, #ed9f29) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    text-align: left !important;
+  }
+  .articles article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .articles img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+  .articles h3 {
+    font-size: 0.8rem !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #2e2e2e !important;
+  }
+  .articles p {
+    margin: 0 !important;
+    font-size: 0.7rem !important;
+    color: #252323 !important;
+    text-decoration: none !important;
+  }
+  .dropdown {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0.5rem;
+  }
+    }
+    @media (max-width:480px){
+          @media (max-width: 768px) {
+      .articles article {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .articles img {
+        width: 100%;
+        max-width: 200px;
+      }
+      .articles h3 {
+        font-size: 1rem;
+      }
+      .articles p {
+        font-size: 0.8rem;
+      }
+      .dropdown {
+        padding: 0 1rem;
+      }
+      main {
+        padding: 0.5rem;
+      }
+        .articles article {
+    padding: 0.5rem;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #ffd992, #ed9f29) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    text-align: left !important;
+  }
+  .articles article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .articles img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+  .articles h3 {
+    font-size: 0.8rem !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #2e2e2e !important;
+  }
+  .articles p {
+    margin: 0 !important;
+    font-size: 0.7rem !important;
+    color: #252323 !important;
+    text-decoration: none !important;
+  }
+  .dropdown {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0.5rem;
+  }
+    }
+    }
 
-    /* Article Grid */
+    @media (max-width: 1000px) {
+      header {
+        height: 300px;
+      }
+      /*.header-top-left img {
+        width: 40px;
+        margin-right: 0.5rem;
+      }*/
+      .header-top-left h2 {
+        font-size: 1.1rem;
+      }
+      .header-center-text h2 {
+        font-size: 1.2rem;
+      }
+      .header-center-text h1 {
+        font-size: 1.6rem;
+      }
+      header nav ul {
+        flex-direction: row;
+        gap: 0.4rem;
+      }
+      header nav ul li a {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
 
+      .hero {
+        padding: 15px 0.5rem;
+      }
+      .hero h2 {
+        font-size: 1.3rem;
+      }
+      .hero p {
+        font-size: 0.85rem;
+      }
+      .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-text {
+        max-width: 100%;
+        margin-bottom: 1rem;
+      }
+      .hero-image {
+        max-width: 100%;
+      }
 
-    .articles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 1.5rem;
-      padding: 0.5rem 1rem;
-      max-width: 1300px;
-      margin: auto;
+      .articles {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .articles article {
+        padding: 0.5rem;
+      }
+      .articles img {
+        width: 100px;
+        height: auto;
+      }
+      .articles h3 {
+        font-size: 0.9rem;
+      }
+      .articles p {
+        font-size: 0.75rem;
+      }
+      .dropdown-header {
+        font-size: 1.5rem;
+        padding: 0.8rem;
+      }
+      .search-bar {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+      }
+      .dropdown:first-of-type .articles article {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: linear-gradient(135deg, #ffd992, #ed9f29);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .dropdown:first-of-type .articles article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .dropdown:first-of-type .articles img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .dropdown:first-of-type .articles h3 {
+        font-size: 0.9rem;
+        margin: 0 0 0.25rem 0;
+        color: #2e2e2e;
+      }
+      .dropdown:first-of-type .articles p {
+        margin: 0;
+        font-size: 0.75rem;
+        color: #252323;
+        text-decoration: none;
+      }
     }
-    .articles article {
-      background: #ed9f29;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .articles article:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .articles article.hidden {
-      display: none;
-    }
-    .articles img {
-      width: 120px;
-      height: auto;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .articles h3 {
-      font-size: 1.2rem;
-      margin: 0 0 0.5rem 0;
-      color: #2e2e2e;
-    }
-    .articles p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #252323;
-      text-decoration: none;
-    }
-    /* Border for images in গান section */
-    .dropdown:nth-child(3) .articles img {
-      border: 2px solid #ffd992;
-      border-radius: 4px;
-    }
+
 
     /* Dropdown Styling */
     .dropdown {
@@ -318,12 +509,100 @@
     /* Article Grid */
     .articles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: 1fr;
       gap: 1.5rem;
       padding: 0.5rem 1rem;
       max-width: 1300px;
       margin: auto;
     }
+    /* Make কবিতা and গান cards same style as প্রবন্ধ on desktop */
+    .dropdown:nth-of-type(2) .articles,
+    .dropdown:nth-of-type(3) .articles {
+      grid-template-columns: 1fr !important;
+    }
+    .dropdown:nth-of-type(2) .articles article,
+    .dropdown:nth-of-type(3) .articles article {
+      background: linear-gradient(135deg, #ffd992, #ed9f29);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .dropdown:nth-of-type(2) .articles article:hover,
+    .dropdown:nth-of-type(3) .articles article:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .dropdown:nth-of-type(2) .articles img,
+    .dropdown:nth-of-type(3) .articles img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .dropdown:nth-of-type(2) .articles h3,
+    .dropdown:nth-of-type(3) .articles h3 {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+      color: #2e2e2e;
+    }
+    .dropdown:nth-of-type(2) .articles p,
+    .dropdown:nth-of-type(3) .articles p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #252323;
+      text-decoration: none;
+
+    }
+
+  .dropdown:nth-of-type(2) .articles,
+    .dropdown:nth-of-type(1) .articles {
+      grid-template-columns: 1fr !important;
+    }
+    .dropdown:nth-of-type(2) .articles article,
+    .dropdown:nth-of-type(1) .articles article {
+      background: linear-gradient(135deg, #ffd992, #ed9f29);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .dropdown:nth-of-type(2) .articles article:hover,
+    .dropdown:nth-of-type(1) .articles article:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .dropdown:nth-of-type(2) .articles img,
+    .dropdown:nth-of-type(1) .articles img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .dropdown:nth-of-type(2) .articles h3,
+    .dropdown:nth-of-type(1) .articles h3 {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+      color: #2e2e2e;
+    }
+    .dropdown:nth-of-type(2) .articles p,
+    .dropdown:nth-of-type(1) .articles p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #252323;
+      text-decoration: none;}
+
+
+
+
     .articles article {
       background: linear-gradient(135deg, #ffd992, #ed9f29);
       border-radius: 8px;
@@ -339,15 +618,56 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
+    @media (max-width: 480px) {
+  .articles article {
+    padding: 0.5rem;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #ffd992, #ed9f29) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    text-align: left !important;
+  }
+  .articles article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .articles img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+  .articles h3 {
+    font-size: 0.8rem !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #2e2e2e !important;
+  }
+  .articles p {
+    margin: 0 !important;
+    font-size: 0.7rem !important;
+    color: #252323 !important;
+    text-decoration: none !important;
+  }
+  .dropdown {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0.5rem;
+  }
+}
+
 
     
   </style>
-    <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
 <header>
-  <a href = "example.html"><div class="header-top-left">
+  <a href="example.html"><div class="header-top-left">
       <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
       <h2>Ramakrishna Mission Vidyamandira</h2>
     </div></a>
@@ -359,8 +679,8 @@
 
   <nav>
     <ul>
-      <li><a class="active"  href="index.html">This Year</a></li>
-      <li><a href="previous.html">Previous year</a></li>
+      <li><a class="active" href="index.html">This Year</a></li>
+      <li><a href="previous.html">Previous Year</a></li>
       <li><a href="about.html">About Us</a></li>
     </ul>
   </nav>
@@ -369,17 +689,19 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h2>ভূমিকা</h2>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            
+        <h2>সম্পাদকীয় </h2>
+        <i><p>name here </p></i>
+        <br>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        
+        
 
       </div>
       <div class="hero-image">
@@ -420,21 +742,37 @@
         </div>
         <section class="articles">
           
-          <a href="article/essay/biprodeep.html">
+
+          <a href="article/essay/sapriti.html">
             <article>
-              <img src="media/happiness.webp" alt="Image of Goddess Uma">
-              <h3 data-translit="puja ek anandabhandar">The Bodhon of the dormant virtues in our heart</h3>
-              <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Biprodeep Banerjee UG-2</p>
+              <img src="media/sampriti.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">সম্প্রীতির ডাক</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">- ?</p>
+              </div>
             </article>
           </a>
 
-          <a href="article/essay/Sayak_Mukharjee.html">
+          <a href="article/essay/chetna.html">
             <article>
-              <img src="media/sayak.jpg" alt="Image of Goddess Uma">
-              <h3 data-translit="puja ek anandabhandar">শক্তির আরাধনা: ধর্ম ভেদের গণ্ডি ছাড়িয়ে</h3>
-              <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Sayak Mukharjee, UG-1, Department of Industrial Chemistry</p>
+              <img src="media/chetna.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">চেতনার বোধন</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">- দীপংসু দাস </p>
+              </div>
             </article>
           </a>
+
+          <a href="article/essay/biprodeep.html">
+            <article>
+              <img src="media/biprodeep.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">The Bodhon of the dormant virtues in our heart</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">- Biprodeep Banerjee UG-2</p>
+              </div>
+            </article>
+          </a>
+
           
           
         </section>
@@ -448,28 +786,36 @@
           <input type="text" class="search-bar" placeholder="কবিতা অনুসন্ধান করুন..." aria-label="Search poems">
         </div>
         <section class="articles">
+          
           <a href="article/poetry/bodhan_swapnendu.html">
             <article>
-              <img src="media/happiness.webp" alt="Image of Goddess Uma">
-              <h3 data-translit="puja ek anandabhandar">অকাল বোধন</h3>
-              <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">স্বপ্নেন্দু সাঁইr</p>
+              <img src="media/bodhan.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">অকাল বোধন</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">স্বপ্নেন্দু সাঁই</p>
+              </div>
             </article>
           </a>
+
           <a href="article/poetry/kusum_rupayan.html">
             <article>
-              <img src="media/happiness.webp" alt="Image of Goddess Uma">
-              <h3 data-translit="puja ek anandabhandar">বনে যদি ফুটল কুসুম</h3>
-              <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">-Rupayon Haldar UG2</p>
+              <img src="media/kusum.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">বনে যদি ফুটল কুসুম</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">-Rupayon Haldar UG2</p>
+              </div>
             </article>
           </a>
-          <a href="article/poetry/dissonance_swastika.html">
+
+          <a href="article/poetry/suvankar.html">
             <article>
-              <img src="media/swastika.jpg" alt="Image of Goddess Uma">
-              <h3 data-translit="puja ek anandabhandar">Dissonance</h3>
-              <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Swastik Maity,Physics,1st year</p>
+              <img src="media/suvankar.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">রেনেসাঁ</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">-শুভঙ্কর পাল</p>
+              </div>
             </article>
           </a>
-          
         </section>
       </div>
     </div>
@@ -481,27 +827,16 @@
           <input type="text" class="search-bar" placeholder="গান অনুসন্ধান করুন..." aria-label="Search songs">
         </div>
         <section class="articles">
-          <a href="songs.html">
+          <a href="article/songs/Dibyendu_song.html">
             <article>
               <img src="media/songs.jpg" alt="Dhaki playing drums during Durga Puja">
-              <h3 data-translit="dhaker tale nacho ma">ঢাকের তালে নাচো মা</h3>
-              <p data-translit="soumyadeep das, snatak prothom borsho, bibhag: padarthabidya">সৌম্যদীপ দাস, স্নাতক প্রথম বর্ষ, বিভাগ: পদার্থবিদ্যা</p>
+              <div class="text-content">
+                <h3 data-translit="dhaker tale nacho ma">উমার আবাহনে</h3>
+                <p data-translit="soumyadeep das, snatak prothom borsho, bibhag: padarthabidya">রচনায়: দিব্যেন্দু বিশ্বাস পদার্থবিদ্যা বিভাগ প্রথম বর্ষ।<br>সুরারোপে ও কন্ঠে: রাজশেখর করণ অনুজীব বিদ্যা বিভাগ প্রথম বর্ষ</p>
+              </div>
             </article>
           </a>
-          <a href="songs.html">
-            <article>
-              <img src="media/songs.jpg" alt="Singing during Durga Puja">
-              <h3 data-translit="anander dhwani">আনন্দের ধ্বনি</h3>
-              <p data-translit="rahul sen, snatak dwitiyo borsho, ganit bibhag">রাহুল সেন, স্নাতক দ্বিতীয় বর্ষ, গণিত বিভাগ</p>
-            </article>
-          </a>
-          <a href="songs.html">
-            <article>
-              <img src="media/songs.jpg" alt="Devotional music during Puja">
-              <h3 data-translit="mayer gan">মায়ের গান</h3>
-              <p data-translit="dipankar ray, snatak prothom borsho, bibhag: rasayan">দীপঙ্কর রায়, স্নাতক প্রথম বর্ষ, বিভাগ: রসায়ন</p>
-            </article>
-          </a>
+          
         </section>
       </div>
     </div> -->
@@ -509,15 +844,10 @@
 
 <footer class="spiritual-footer">
   <div class="footer-container">
-
-    <!-- Left -->
     <div class="footer-left">
       <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
-      <!-- <h3>প্রয়াস - বিবেক ভবন</h3> -->
       <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
     </div>
-
-    <!-- Center -->
     <div class="footer-center">
       <h4>Quick Links</h4>
       <ul>
@@ -526,18 +856,13 @@
         <li><a href="about.html">About Us</a></li>
       </ul>
     </div>
-
-    <!-- Right -->
     <div class="footer-right">
       <h4>Contact</h4>
       <p>Belur Math, Howrah, WB</p>
       <p>Email: info@vidyamandira.ac.in</p>
     </div>
-
   </div>
 </footer>
-
-
 
   <script>
     // Dropdown toggle functionality
@@ -546,13 +871,11 @@
         const content = header.nextElementSibling;
         const isOpen = content.classList.contains('open');
 
-        // Close all other dropdowns
         document.querySelectorAll('.dropdown-content').forEach(otherContent => {
           if (otherContent !== content) {
             otherContent.classList.remove('open');
             otherContent.style.maxHeight = '0';
             otherContent.style.opacity = '0';
-            // Reset search input and show all articles in other dropdowns
             const searchBar = otherContent.querySelector('.search-bar');
             if (searchBar) searchBar.value = '';
             otherContent.querySelectorAll('.articles article').forEach(article => {
@@ -567,14 +890,12 @@
           }
         });
 
-        // Toggle the clicked dropdown
         if (isOpen) {
           content.classList.remove('open');
           content.style.maxHeight = '0';
           content.style.opacity = '0';
           header.classList.remove('active');
           header.setAttribute('aria-expanded', 'false');
-          // Reset search input and show all articles
           const searchBar = content.querySelector('.search-bar');
           if (searchBar) searchBar.value = '';
           content.querySelectorAll('.articles article').forEach(article => {
@@ -589,7 +910,6 @@
         }
       });
 
-      // Add keyboard accessibility for dropdowns
       header.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
@@ -626,7 +946,6 @@
           }
         });
 
-        // Update dropdown height to account for filtered content
         const dropdownContent = searchBar.closest('.dropdown-content');
         if (dropdownContent.classList.contains('open')) {
           dropdownContent.style.maxHeight = dropdownContent.scrollHeight + 'px';
@@ -635,7 +954,7 @@
     });
 
     // Debugging: Log navigation click for "This Year" link
-    document.querySelector('a[href="./index_main.html"]').addEventListener('click', (e) => {
+    document.querySelector('a[href="./index_main.html"]')?.addEventListener('click', (e) => {
       console.log('Navigating to ./index_main.html');
     });
   </script>

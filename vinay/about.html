@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - bodhan@2025</title>
+  <title>About Us - bodhan 2025</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="footer.css">
   <style>
+     /*----------Font --------*/
+    @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap');
     /* Header Styling */
     header {
-      background-size: 100% auto;
+      background-size: cover;
       height: 500px;
       width: auto;
       position: relative;
@@ -187,7 +189,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="./index.html">This Year</a></li>
+        <li><a href="index.html">This Year</a></li>
         <li><a href="previous.html">Previous Year</a></li>
         <li><a class="active" href="about.html">About Us</a></li>
       </ul>
@@ -196,45 +198,47 @@
 
   <section class="hero">
     <h2 lang="bn">~: About Us :~</h2>
-    <p>Rooted in the values of Ramakrishna Mission Vidyamandira, Bodhan is a vibrant expression of creativity and community from Shraddha Bhavan, celebrating the spirit of Durga Puja through student contributions.</p>
+    <p>Rooted in the values of Ramakrishna Mission Vidyamandira, Bodhan is a vibrant expression of creativity and community from Vinay Bhavan, celebrating the spirit of Durga Puja through student contributions.</p>
   </section>
 
   <main class="about-content">
     <div class="about-card">
       <h3 lang="bn">রামকৃষ্ণ মিশন বিদ্যামন্দির</h3>
-      <p>Ramakrishna Mission Vidyamandira, located in Belur, is a esteemed educational institution under the Ramakrishna Mission, dedicated to holistic education combining academic excellence with spiritual and cultural values.</p>
+      <p>Ramakrishna Mission Vidyamandira, located in Belur, is a premier educational institution under the Ramakrishna Mission, dedicated to holistic education combining academic excellence with spiritual and cultural values.</p>
     </div>
     <div class="about-card">
-      <h3 lang="bn">বোধন  পত্রিকা</h3>
-      <p>bodhan is the annual Durga Puja wall magazine of Vinay Bhavan, showcasing the creative contributions of the students through articles, poems, and songs celebrating Bengali culture and spirituality.</p>
+      <h3 lang="bn">বোধন পত্রিকা</h3>
+      <p>Bodhan is the annual Durga Puja wall magazine of Vinay Bhavan, showcasing the creative contributions of the students through articles, poems, and songs celebrating Bengali culture and spirituality.</p>
     </div>
     <div class="about-card">
       <h3 lang="bn">বিনয়  ভবন</h3>
-      <p>Vinay Bhavan is one of the hostels at Ramakrishna Mission Vidyamandira, fostering a vibrant community where students engage in cultural, academic, and especially spiritual activities.</p>
+      <p>Vinay Bhavan is one of the hostel for the students at Ramakrishna Mission Vidyamandira, fostering a vibrant community where students engage in cultural, academic, and spiritual activities.</p>
     </div>
   </main>
 
   <section class="about-content">
     <div class="about-card" style="grid-column: 1 / -1; max-width: 600px; margin: auto; min-height: 300px;">
       <h3 lang="bn">আমাদের দল</h3>
-
-      <p>not updated</p>
+      <p>আমাদের দলে নিবেদিতপ্রাণ শিক্ষার্থী এবং অনুষদ সদস্যরা রয়েছেন যারা দুর্গাপূজা উৎসবের সময় ঐক্য এবং সৃজনশীলতার চেতনা প্রতিফলিত করে প্রয়াসকে জীবন্ত করে তুলতে সহযোগিতা করেছে।</p>
+      <br>
+      
+      <p>Not available</p>
       <p></p>
       <p></p>
 
     </div>
   </section>
 
-  <section class="about-content">
+  <!-- <section class="about-content">
     <div class="about-card interactive" style="grid-column: 1 / -1; max-width: 600px; margin: auto;">
       <h3>Behind The Scenes</h3>
-      <p>A glimpse into the collaborative efforts, planning, and creativity that go into creating the vibrant Bodhan magazine, showcasing the dedication and passion of the vinay Bhavan community.</p>
+      <p>A glimpse into the collaborative efforts, planning, and creativity that go into creating the vibrant Bodhan magazine, showcasing the dedication and passion of the Vinay Bhavan community.</p>
       <video controls>
-        <source src="media/behind_the_scenes.mp4" type="video/mp4">
+        <source src="media/bts.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-  </section>
+  </section> -->
 
 <footer class="spiritual-footer">
   <div class="footer-container">
@@ -243,15 +247,17 @@
       <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
       <!-- <h3>প্রয়াস - বিবেক ভবন</h3> -->
       <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
+      <a href="/developers.html" style="font-size: 25px; text-decoration: none; color: orangered; font-family: Poltawski Nowy; font-weight: 700;"><p>Developers</p></a>
     </div>
 
     <!-- Center -->
     <div class="footer-center">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="index.html">This Year</a></li>
-        <li><a href="previous.html">Previous Years</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="https://belurmath.org">Belur Math</Math></a></li>
+        <li><a href="https://vidyamandira.ac.in">Vidyamandira</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="about_us1.html">About Us</a></li>
       </ul>
     </div>
 
@@ -265,8 +271,11 @@
 </footer>
 
   <script>
-    document.querySelector('.about-card.interactive').addEventListener('click', function() {
-      this.classList.toggle('active');
+    document.querySelector('.about-card.interactive').addEventListener('click', function(event) {
+      // Check if the clicked element is the video or a child of the video
+      if (!event.target.closest('video')) {
+        this.classList.toggle('active');
+      }
     });
   </script>
 </body>
