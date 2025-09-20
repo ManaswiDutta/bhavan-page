@@ -383,7 +383,30 @@
 
       </div>
       <div class="hero-image">
-        <img src="media/wallmagimg.jpeg" alt="Durga painting">
+        <div style="position: relative; display: inline-block;">
+          <img src="media/wallmagimg.jpeg" alt="Durga painting" style="max-width:100%; height:auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+          <a href="media/wallmagimg.jpeg" download title="Download Wall Magazine Image" style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #333;
+            border: none;
+            border-radius: 50%;
+            padding: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            cursor: pointer;
+            opacity: 0.85;
+            transition: background 0.2s, color 0.2s, opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            text-decoration: none;
+          " onmouseover="this.style.background='#0078d7';this.style.color='#fff';this.style.opacity='1';" onmouseout="this.style.background='#fff';this.style.color='#333';this.style.opacity='0.85';">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M12 16.5a1 1 0 0 1-1-1V5a1 1 0 1 1 2 0v10.5a1 1 0 0 1-1 1Zm-4.71-4.79a1 1 0 0 1 1.42-1.42l2.29 2.3V5a1 1 0 1 1 2 0v7.59l2.29-2.3a1 1 0 1 1 1.42 1.42l-4 4a1 1 0 0 1-1.42 0l-4-4Z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
